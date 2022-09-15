@@ -1,0 +1,46 @@
+{
+    "recipe_name": "Smoky Chorizo Salmon",
+    "serves": "2",
+    "prep_time": "2 mins",
+    "cooking_time": "10 mins",
+    "ingredients": [
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "salmon fillets"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "Mixed Herbs"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "Salt and Pepper"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "dried chilli flakes"
+        },
+        {
+            "unit_size": "8",
+            "unit_type": "",
+            "ingredient_name": "Black Olives"
+        },
+        {
+            "unit_size": "30",
+            "unit_type": "g",
+            "ingredient_name": "chorizo"
+        }
+    ],
+    "method":[
+        "Sprinkle each side of the salmon with the herbs, S&P, chilli flakes until lightly covered.",
+        "Heat some oil in a frying pan on a medium heat.",
+        "Put the salmon in the pan & fry flesh-down for approx. 3 minutes & then flip onto skin side for a further 5 minutes.",
+        "Meanwhile, halve the olives & chop up the chorizo into chunks.",
+        "Add the olives & chorizo to the pan and lower the heat & fry for a further 2 minutes.",
+        "Serve with rice/veg/potatoes/pasta"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "recipe_name": "Slow-cooker Spanish chicken",
+    "serves": "NOT YET IMPLEMENTED",
+    "prep_time": "NOT YET IMPLEMENTED",
+    "cooking_time": "NOT YET IMPLEMENTED",
+    "source_link": "NOT YET IMPLEMENTED",
+    "ingredients": [
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "2 tbsp olive oil"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 spanish onion, halved and sliced"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "12 large bone-in chicken thighs, skin removed"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "225g pack chorizo picante, thickly sliced"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "pack of 3 mixed colour peppers, cut into chunks"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "150g (drained weight) pitted spanish pimento stuffed green olives"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "300ml dry white wine (serve the rest of the bottle with the meal)"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "300ml chicken stock"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 tbsp tomato pur\u00e9e"
+        }
+    ],
+    "method": [
+        "STEP 1",
+        "Heat 2 tbsp olive oil in a large frying pan. Fry 1 sliced Spanish onion for about 5 mins until golden.",
+        "STEP 2",
+        "Tip into the slow cooker pot (we used a 6.5-litre model), then fry 12 large bone-in skinless chicken thighs and 225g thickly sliced chorizo picante in the same pan until starting to colour \u2013 you will need to do this in two batches.",
+        "STEP 3",
+        "Add to the slow cooker with 3 mixed colour peppers, cut into chunks and 150g pitted Spanish pimento stuffed green olives.",
+        "STEP 4",
+        "Tip 300ml dry white wine, 300ml chicken stock and 1 tbsp tomato pur\u00e9e into the pan.",
+        "STEP 5",
+        "Scrape up any bits stuck to the bottom, then tip into the slow cooker, cover and cook on Low for 6 hrs."
+    ]
+}

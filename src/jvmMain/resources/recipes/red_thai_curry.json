@@ -1,0 +1,89 @@
+{
+    "recipe_name": "Red Thai Curry",
+    "serves": "4",
+    "prep_time": "15 mins",
+    "cooking_time": "20 mins",
+    "ingredients": [
+        {
+            "unit_size": "1",
+            "unit_type": "tsbp",
+            "ingredient_name": "vegtable oil"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tbsp",
+            "ingredient_name": "ginger paste"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tbsp",
+            "ingredient_name": "garlic paste"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "red curry paste"
+        },
+        {
+            "unit_size": "800",
+            "unit_type": "ml",
+            "ingredient_name": "cocunut milk"
+        },
+        {
+            "unit_size": "8",
+            "unit_type": "",
+            "ingredient_name": "chicken thighs"
+        },
+        {
+            "unit_size": "4",
+            "unit_type": "",
+            "ingredient_name": "fresh lime leaves"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tbsp",
+            "ingredient_name": "fish sauce"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "brown sugar"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "thai basil"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "basil"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "coriander"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "red chilli"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "thumb sized piece",
+            "ingredient_name": "ginger"
+        }
+        
+    ],
+    "method":[
+        "Preheat the oven to 200C & whilst waiting for this to heat up, chop the chorizo & garlic into small chunks. ",
+        "Place the chicken thighs in a large roasting tray.",
+        "Wash & then chop (leaving skin on) the potatoes into small chunks. ",
+        "Chop the onion & peppers into similar sized chunks as  the potatoes & proceed to add all the veg (potatoes, onions & peppers) to the tray. ",
+        "Pour over the chicken stock and sprinkle the chorizo & garlic evenly across the chicken & veg.",
+        "Cover in foil & pop into the oven for 30 minutes. ",
+        "After 30 minutes, remove the foil & put back into the over for a further 30 minutes until the chicken and veg are cooked through. ",
+        "Whilst this is in the oven, slice the chilli & halve the lemon & once the dish is cooked sprinkle over the chilli and juice of the lemon and ready to serve with rice/salad/veg!"
+    ]
+}

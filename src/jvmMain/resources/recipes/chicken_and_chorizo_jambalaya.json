@@ -1,0 +1,60 @@
+{
+    "recipe_name": "Chicken & chorizo jambalaya",
+    "serves": "4",
+    "prep_time": "10 mins",
+    "cooking_time": "45 mins",
+    "ingredients": [
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "chicken breasts"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "onion"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "peppers"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "garlic cloves"
+        },
+        {
+            "unit_size": "75",
+            "unit_type": "g",
+            "ingredient_name": "chorizo"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tbsp",
+            "ingredient_name": "Cajun seasoning"
+        },
+        {
+            "unit_size": "250",
+            "unit_type": "g",
+            "ingredient_name": "long grain rice"
+        },
+        {
+            "unit_size": "400",
+            "unit_type": "g",
+            "ingredient_name": "plum tomato"
+        },
+        {
+            "unit_size": "300",
+            "unit_type": "ml",
+            "ingredient_name": "chicken stock"
+        }
+    ],
+    "method": [
+        "Heat 1 tbsp olive oil in a large frying pan with a lid and brown 2 chopped chicken breasts for 5-8 mins until golden.",
+        "Remove and set aside. Tip in the 1 diced onion and cook for 3-4 mins until soft.",
+        "Add 1 thinly sliced red pepper, 2 crushed garlic cloves, 75g sliced chorizo and 1 tbsp Cajun seasoning, and cook for 5 mins more.",
+        "Stir the chicken back in with 250g long grain rice, add the 400g can of tomatoes and 350ml chicken stock. Cover and simmer for 20-25 mins until the rice is tender."
+    ]
+}
+

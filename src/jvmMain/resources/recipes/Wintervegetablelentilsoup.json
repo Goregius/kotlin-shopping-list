@@ -1,0 +1,62 @@
+{
+    "recipe_name": "Winter vegetable & lentil soup",
+    "serves": "NOT YET IMPLEMENTED",
+    "prep_time": "NOT YET IMPLEMENTED",
+    "cooking_time": "NOT YET IMPLEMENTED",
+    "source_link": "NOT YET IMPLEMENTED",
+    "ingredients": [
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "85g dried red lentils"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "2 carrots, quartered lengthways then diced"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "3 sticks celery, sliced"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "2 small leeks, sliced"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "2 tbsp tomato pur\u00e9e"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 tbsp fresh thyme leaves"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "3 large garlic cloves, chopped"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 tbsp vegetable bouillon powder"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 heaped tsp ground coriander"
+        }
+    ],
+    "method": [
+        "STEP 1",
+        "Tip all the ingredients into a large pan. Pour over 1\u00bd litres boiling water, then stir well.",
+        "STEP 2",
+        "Cover and leave to simmer for 30 mins until the vegetables and lentils are tender.",
+        "STEP 3",
+        "Ladle into bowls and eat straightaway, or if you like a really thick texture, blitz a third of the soup with a hand blender or in a food processor."
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "recipe_name": "Tarka dhal",
+    "serves": "NOT YET IMPLEMENTED",
+    "prep_time": "NOT YET IMPLEMENTED",
+    "cooking_time": "NOT YET IMPLEMENTED",
+    "source_link": "NOT YET IMPLEMENTED",
+    "ingredients": [
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "200g red lentils"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "2 tbsp ghee, or vegetable oil if you're vegan"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 small onion, finely chopped"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "3 garlic cloves, finely chopped"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "\u00bc tsp turmeric"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "\u00bd tsp garam masala"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "coriander, to serve"
+        },
+        {
+            "unit_size": "0.0",
+            "unit_type": "",
+            "ingredient_name": "1 small tomato, chopped"
+        }
+    ],
+    "method": [
+        "STEP 1",
+        "Rinse the lentils several times until the water runs clear, then tip into a saucepan with 1 litre water and a pinch of salt. Bring to the boil, then reduce the heat and simmer for 25 mins, skimming the froth from the top. Cover with a lid and cook for a further 40 mins, stirring occasionally, until it\u2019s a thick, soupy consistency.",
+        "STEP 2",
+        "While the lentils are cooking, heat the ghee or oil in a non-stick frying pan over a medium heat, then fry the onion and garlic until the onion is softened, so around 8 mins. Add the turmeric and garam masala, then cook for a further minute. Set aside.",
+        "STEP 3",
+        "Tip the lentils into bowls and spoon half the onion mixture on top. Top with the coriander and tomato to serve."
+    ]
+}

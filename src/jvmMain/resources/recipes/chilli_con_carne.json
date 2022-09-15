@@ -1,0 +1,83 @@
+{
+    "recipe_name": "Chilli Con Carne",
+    "serves": "6",
+    "prep_time": "25 mins",
+    "cooking_time": "110 mins",
+    "ingredients": [
+        {
+            "unit_size": "1",
+            "unit_type": "tsbp",
+            "ingredient_name": "olive oil"
+        },
+        {
+            "unit_size": "4",
+            "unit_type": "",
+            "ingredient_name": "rashers smoked streaky bacon"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "medium onions"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "garlic cloves"
+        },
+        {
+            "unit_size": "1000",
+            "unit_type": "g",
+            "ingredient_name": "chopped tomatoes"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "dried oregano"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "fresh bay leaves"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tsbp",
+            "ingredient_name": "tomato puree"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "beef stock cube"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "red chilli"
+        },
+        {
+            "unit_size": "125",
+            "unit_type": "ml",
+            "ingredient_name": "red wine"
+        },
+        {
+            "unit_size": "400",
+            "unit_type": "g",
+            "ingredient_name": "spaghetti"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "garlic bread"
+        }
+    ],
+    "method":[
+        "Preheat the oven to 200C & whilst waiting for this to heat up, chop the chorizo & garlic into small chunks. ",
+        "Place the chicken thighs in a large roasting tray.",
+        "Wash & then chop (leaving skin on) the potatoes into small chunks. ",
+        "Chop the onion & peppers into similar sized chunks as  the potatoes & proceed to add all the veg (potatoes, onions & peppers) to the tray. ",
+        "Pour over the chicken stock and sprinkle the chorizo & garlic evenly across the chicken & veg.",
+        "Cover in foil & pop into the oven for 30 minutes. ",
+        "After 30 minutes, remove the foil & put back into the over for a further 30 minutes until the chicken and veg are cooked through. ",
+        "Whilst this is in the oven, slice the chilli & halve the lemon & once the dish is cooked sprinkle over the chilli and juice of the lemon and ready to serve with rice/salad/veg!"
+    ]
+}

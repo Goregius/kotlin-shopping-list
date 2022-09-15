@@ -1,0 +1,79 @@
+{
+    "recipe_name": "Sri Lankan Spicy Chicken",
+    "serves": "4",
+    "prep_time": "10 mins",
+    "cooking_time": "60 mins",
+    "ingredients": [
+        {
+            "unit_size": "2",
+            "unit_type": "tsbp",
+            "ingredient_name": "vegtable oil"
+        },
+        {
+            "unit_size": "4",
+            "unit_type": "",
+            "ingredient_name": "chicken breast"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "large onion"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "green chillies"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tbsp",
+            "ingredient_name": "medium curry paste"
+        },
+        {
+            "unit_size": "0.25",
+            "unit_type": "tsp",
+            "ingredient_name": "ground tumeric"
+        },
+        {
+            "unit_size": "75",
+            "unit_type": "g",
+            "ingredient_name": "creamed cocunut block chopped"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tbsp",
+            "ingredient_name": "white wine vinegar"
+        },
+        {
+            "unit_size": "75",
+            "unit_type": "g",
+            "ingredient_name": "fresh spinach leaves"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "cardamon pods"
+        },
+        {
+            "unit_size": "0.5",
+            "unit_type": "tsp",
+            "ingredient_name": "ground cinnamon"
+        },
+        {
+            "unit_size": "0.25",
+            "unit_type": "tsp",
+            "ingredient_name": "garam masala"
+        }
+
+    ],
+    "method":[
+        "Preheat the oven to 200C & whilst waiting for this to heat up, chop the chorizo & garlic into small chunks. ",
+        "Place the chicken thighs in a large roasting tray.",
+        "Wash & then chop (leaving skin on) the potatoes into small chunks. ",
+        "Chop the onion & peppers into similar sized chunks as  the potatoes & proceed to add all the veg (potatoes, onions & peppers) to the tray. ",
+        "Pour over the chicken stock and sprinkle the chorizo & garlic evenly across the chicken & veg.",
+        "Cover in foil & pop into the oven for 30 minutes. ",
+        "After 30 minutes, remove the foil & put back into the over for a further 30 minutes until the chicken and veg are cooked through. ",
+        "Whilst this is in the oven, slice the chilli & halve the lemon & once the dish is cooked sprinkle over the chilli and juice of the lemon and ready to serve with rice/salad/veg!"
+    ]
+}

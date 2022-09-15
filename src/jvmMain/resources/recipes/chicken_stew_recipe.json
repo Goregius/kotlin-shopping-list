@@ -1,0 +1,119 @@
+{
+    "recipe_name": "Chicken Stew",
+    "ingredients": [
+        {
+            "unit_size": "4",
+            "unit_type": "tbsp",
+            "ingredient_name": "olive oil"
+        },
+        {
+            "unit_size": "100",
+            "unit_type": "g",
+            "ingredient_name": "chorizo"
+        },
+        {
+            "unit_size": "8",
+            "unit_type": "",
+            "ingredient_name": "chicken thighs"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "large onion"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "garlic cloves"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "splash sherry"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "dried thyme"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "dried oregano"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "onion granules"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "sweet paprika"
+        },
+        {
+            "unit_size": "0.5",
+            "unit_type": "tsp",
+            "ingredient_name": "ground cumin"
+        },
+        {
+            "unit_size": "0.25",
+            "unit_type": "tsp",
+            "ingredient_name": "chilli powder"
+        },
+        {
+            "unit_size": "400",
+            "unit_type": "g",
+            "ingredient_name": "chickpeas"
+        },
+        {
+            "unit_size": "400",
+            "unit_type": "g",
+            "ingredient_name": "chopped tomatoes"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "chicken stock cube"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tbsp",
+            "ingredient_name": "honey"
+        },
+        {
+            "unit_size": "20",
+            "unit_type": "",
+            "ingredient_name": "green pitted olives"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "salt and pepper"
+        },
+        {
+            "unit_size": "0.25",
+            "unit_type": "tsp",
+            "ingredient_name": "dried chilli flakes"
+        },
+        {
+            "unit_size": "0",
+            "unit_type": "",
+            "ingredient_name": "fresh thyme"
+        }
+    ],
+    "method":[
+        "Mix all the spices and dried herbs together in a small bowl",
+        "Peel the casing off the chorizo and cut into small cubes",
+        "Heat a large lidded casserole dish and add 2 tbsp olive oil. Throw in the chorizo and cook over medium heat until it starts releasting some of its spict oil.",
+        "Add the chicken thighs, skin side down, and cook until nicely browned on one side, about 2-3 minutes. Use tongs to flip over and cook the other side. Remove from the pan and scrape any browned bits of chciekn (especially if you are using a cast iron casserole dish)",
+        "Add the remaining olive oil and fry the onion and garlic over medium-low hear for 2 minutes.",
+        "Sprinkle half the spice mix and cook for a further 2 minutes",
+        "Stir in the chickpeas and tomatoes. Fill the empty tomato tin with water and add to the pan.",
+        "Add the crumbled stock cube and honey, stir everything together and bring to a simmer.",
+        "Return the chicken and chorizo to the pan, cover and simmer for 30 minutes.",
+        "Stir in the olives and sprinkle remaining spice mix over the chicken. Cook, uncovered, for a further 10 minutes or until the chicken is fully cooked and liquid is reduced.",
+        "Taste and season with salt and pepper.",
+        "Sprinkle with the dried chilli flakes and fresh thyme and serve with steamed brown rice or couscous."
+    ]
+}

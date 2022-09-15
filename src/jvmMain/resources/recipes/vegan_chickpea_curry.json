@@ -1,0 +1,101 @@
+{
+    "recipe_name": "Chana Masala (Vegan Chick Pea Recipe)",
+    "ingredients": [
+        {
+            "unit_size": "3",
+            "unit_type": "tbsp",
+            "ingredient_name": "vegtable oil"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tbsp",
+            "ingredient_name": "tomato puree"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "medium diced onion"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "bay leaf"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tsp",
+            "ingredient_name": "garlic paste"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tsp",
+            "ingredient_name": "ginger"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "cinnamon stick"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "pinch",
+            "ingredient_name": "ground fenugreek"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "",
+            "ingredient_name": "fresh coriandar"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "cumin powder"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "coriander powder"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "chilli powder"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tsp",
+            "ingredient_name": "chat masala powder"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "garam masala powder"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "tsp",
+            "ingredient_name": "cumin seeds"
+        },
+        {
+            "unit_size": "1",
+            "unit_type": "tsp",
+            "ingredient_name": "salt"
+        },
+        {
+            "unit_size": "2",
+            "unit_type": "",
+            "ingredient_name": "diced fresh tomatoes"
+        },
+        {
+            "unit_size": "5",
+            "unit_type": "",
+            "ingredient_name": "cardamom pods"
+        },
+        {
+            "unit_size": "800",
+            "unit_type": "g",
+            "ingredient_name": "chickpeas"
+        }
+    ],
+    "method":[]
+}

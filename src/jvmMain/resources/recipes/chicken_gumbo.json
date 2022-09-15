@@ -1,0 +1,17 @@
+{
+    "recipe_name": "Chicken Gumbo",
+    "serves": "6",
+    "prep_time": "20 mins",
+    "cooking_time": "45 mins",
+    "source_link": "https://www.bbcgoodfood.com/recipes/cajun-chicken-gumbo",
+    "ingredients": [
+        {
+            "unit_size": "1.6",
+            "unit_type": "kg",
+            "ingredient_name": "good-quality braising steak"
+        }
+    ],
+    "method": [
+        ""
+    ]
+}
