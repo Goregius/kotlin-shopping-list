@@ -1,9 +1,7 @@
 package com.github.goregius.shoppinglist.ui
 
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
@@ -11,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun TopAppBar(
+fun ShoppingListTopAppBar(
     route: Route,
     onSettingsClick: () -> Unit,
     hasBackNavigation: Boolean,
@@ -48,4 +46,19 @@ fun TopAppBar(
             }
         }
     )
+}
+
+@Preview
+@Composable
+fun ShoppingListTopAppBarRecipesPreview() {
+    MaterialTheme(darkColors()) {
+        ShoppingListTopAppBar(Route.Recipes, {}, false, {})
+    }
+}
+@Preview
+@Composable
+fun ShoppingListTopAppBarSettingsPreview() {
+    MaterialTheme(darkColors()) {
+        ShoppingListTopAppBar(Route.Settings, {}, true, {})
+    }
 }

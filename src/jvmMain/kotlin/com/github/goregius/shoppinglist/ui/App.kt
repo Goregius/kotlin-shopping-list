@@ -30,7 +30,7 @@ fun App(dependencies: Dependencies) {
         Scaffold(
             scaffoldState = scaffoldState,
             topBar = {
-                TopAppBar(
+                ShoppingListTopAppBar(
                     route = navigation.currentRoute,
                     onSettingsClick = {
                         navigation.navigateTo(Route.Settings)
