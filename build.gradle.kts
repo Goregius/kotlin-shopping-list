@@ -1,6 +1,4 @@
 import org.jetbrains.compose.compose
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
@@ -44,6 +42,7 @@ kotlin {
                 implementation("io.arrow-kt:arrow-fx-stm:1.1.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("com.formdev:flatlaf:2.4")
 
                 implementation("ch.qos.logback:logback-classic:1.4.0")
             }
@@ -58,11 +57,6 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "shoppinglist"
-            packageVersion = "1.0.0"
-        }
+        mainClass = "com.github.goregius.shoppinglist.MainKt"
     }
 }

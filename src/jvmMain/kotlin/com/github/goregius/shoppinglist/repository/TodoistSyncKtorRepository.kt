@@ -2,9 +2,10 @@ package com.github.goregius.shoppinglist.repository
 
 import arrow.core.Either
 import arrow.core.continuations.either
-import com.github.goregius.shoppinglist.Env
 import com.github.goregius.shoppinglist.model.TodoistRepositoryError
+import com.github.goregius.shoppinglist.model.TodoistResponseError
 import com.github.goregius.shoppinglist.model.UnexpectedTodoistError
+import com.github.goregius.shoppinglist.model.todoist.AddItemsResponse
 import com.github.goregius.shoppinglist.model.todoist.ItemAddCommand
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -18,7 +19,10 @@ import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 
-class TodoistSyncKtorRepository(private val json: Json, private val env: Env) : TodoistSyncRepository {
+class TodoistSyncKtorRepository(
+    private val json: Json,
+    private val preferencesRepository: PreferencesRepository,
+) : TodoistSyncRepository {
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {
             json(json)
@@ -29,16 +33,20 @@ class TodoistSyncKtorRepository(private val json: Json, private val env: Env) : 
 
         defaultRequest {
             url("https://api.todoist.com/sync/v9/")
-            header("Authorization", "Bearer " + env.getTodoistToken())
+            header("Authorization", "Bearer " + preferencesRepository.getPreference(PreferenceKey.TodoistToken))
         }
     }
 
-    override suspend fun addItems(commands: List<ItemAddCommand>): Either<TodoistRepositoryError, String> = either {
+    override suspend fun addItems(commands: List<ItemAddCommand>): Either<TodoistRepositoryError, AddItemsResponse> = either {
         Either.catch {
             client.post("sync") {
                 contentType(ContentType.Application.Json)
                 setBody(SyncRequest(commands))
-            }.body<String>()
+            }.body<AddItemsResponse>().also { response ->
+                if (response.error != null) {
+                    shift<TodoistResponseError>(TodoistResponseError(response.error))
+                }
+            }
         }.mapLeft { e -> UnexpectedTodoistError("Failed to create an item", e) }
             .bind()
     }

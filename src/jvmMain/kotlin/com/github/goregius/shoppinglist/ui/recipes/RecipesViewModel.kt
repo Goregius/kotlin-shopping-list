@@ -1,8 +1,6 @@
-package com.github.goregius.shoppinglist.ui
+package com.github.goregius.shoppinglist.ui.recipes
 
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import arrow.core.Either
 import com.github.goregius.shoppinglist.extension.toDisplayString
 import com.github.goregius.shoppinglist.model.DomainError
@@ -11,32 +9,33 @@ import com.github.goregius.shoppinglist.model.todoist.ItemAddArgs
 import com.github.goregius.shoppinglist.model.todoist.ItemAddCommand
 import com.github.goregius.shoppinglist.repository.RecipeRepository
 import com.github.goregius.shoppinglist.repository.TodoistSyncRepository
-import com.github.goregius.shoppinglist.toUserMessage
+import com.github.goregius.shoppinglist.extension.toUserMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+
+data class RecipeOption(val recipe: Recipe, val selected: Boolean, val expanded: Boolean)
 
 class RecipesViewModel(
     private val recipeRepository: RecipeRepository,
     private val todoistRepository: TodoistSyncRepository,
     private val coroutineScope: CoroutineScope,
 ) {
-    // Intellij doesn't like using the 'by' keyword currently in classes, so I'm avoiding them for now
-    private var error = mutableStateOf<DomainError?>(null)
-    val userErrorMessage get() = error.value?.toUserMessage()
+    private var error by mutableStateOf<DomainError?>(null)
+    val userErrorMessage get() = error?.toUserMessage()
 
     val recipeOptions = mutableStateListOf<RecipeOption>()
 
-    var isAddingToShoppingList = mutableStateOf(false)
+    var isAddingToShoppingList by mutableStateOf(false)
 
-    val ingredientsCount =
+    val ingredientsCount by
         derivedStateOf { recipeOptions.filter { it.selected }.sumOf { it.recipe.ingredients.count() } }
 
     init {
         coroutineScope.launch {
             when (val recipesResult = recipeRepository.findAll()) {
                 is Either.Left -> {
-                    error.value = recipesResult.value
+                    error = recipesResult.value
                 }
 
                 is Either.Right -> {
@@ -57,8 +56,8 @@ class RecipesViewModel(
     }
 
     private suspend fun addRecipesToShoppingList(recipes: Iterable<Recipe>) {
-        if (isAddingToShoppingList.value) return
-        isAddingToShoppingList.value = true
+        if (isAddingToShoppingList) return
+        isAddingToShoppingList = true
         val ingredients = recipes
             .flatMap {
                 it.ingredients.map { ingredient -> ingredient.toDisplayString() }
@@ -76,23 +75,22 @@ class RecipesViewModel(
         for (commands in chunkedCommands) {
             when (val result = todoistRepository.addItems(commands)) {
                 is Either.Left -> {
-                    error.value = result.value
+                    error = result.value
                     break
                 }
-
                 is Either.Right -> {
-
+                    error = null
+                    recipeOptions.replaceAll {
+                        it.copy(selected = false)
+                    }
                 }
             }
         }
 
-        isAddingToShoppingList.value = false
-        unselectAll()
+        isAddingToShoppingList = false
     }
 
-    fun unselectAll() {
-        recipeOptions.replaceAll {
-            it.copy(selected = false)
-        }
+    fun dismissErrorMessage() {
+        error = null
     }
 }

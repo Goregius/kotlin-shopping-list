@@ -1,62 +1,53 @@
 package com.github.goregius.shoppinglist
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.unit.DpSize
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Window
-import androidx.compose.ui.window.application
-import androidx.compose.ui.window.rememberWindowState
+import androidx.compose.ui.awt.ComposePanel
+import com.formdev.flatlaf.FlatDarculaLaf
+import com.github.goregius.shoppinglist.env.Dependencies
+import com.github.goregius.shoppinglist.repository.PreferencesRepositoryImpl
 import com.github.goregius.shoppinglist.repository.RecipeFileRepository
-import com.github.goregius.shoppinglist.repository.RecipeRepository
 import com.github.goregius.shoppinglist.repository.TodoistSyncKtorRepository
-import com.github.goregius.shoppinglist.repository.TodoistSyncRepository
 import com.github.goregius.shoppinglist.ui.App
 import kotlinx.serialization.json.Json
+import java.awt.BorderLayout
 import java.awt.Color
-import java.util.prefs.Preferences
+import java.awt.Point
 import javax.swing.JFrame
 import javax.swing.SwingUtilities
-import javax.swing.UIManager
-import javax.swing.plaf.ColorUIResource
-
-
-class Dependencies(
-    val recipeRepository: RecipeRepository,
-    val todoistRepository: TodoistSyncRepository,
-    val env: Env,
-)
-
-class Env {
-    fun getTodoistToken(): String = Preferences.userNodeForPackage(Env::class.java).get("todoist_token", "")
-}
+import javax.swing.WindowConstants
 
 fun main() {
-    val env = Env()
+    val preferencesRepository = PreferencesRepositoryImpl()
+
     val recipeRepository = RecipeFileRepository(Json {
         ignoreUnknownKeys = true
     })
     val todoistRepository = TodoistSyncKtorRepository(Json {
         ignoreUnknownKeys = true
-    }, env)
-    val dependencies = Dependencies(recipeRepository, todoistRepository, env)
+    }, preferencesRepository)
 
-    application {
-        val state = rememberWindowState(size = DpSize(800.dp, 1000.dp))
-        var isOpen by remember { mutableStateOf(true) }
+    val dependencies = Dependencies(recipeRepository, todoistRepository, preferencesRepository)
 
-        if (isOpen) {
-            Window(
-                title = "Shopping List",
-                state = state,
-                onCloseRequest = ::exitApplication,
-                undecorated = true,
-                transparent = true
-            ) {
-                App(dependencies, { isOpen = false }, state.placement, { state.placement = it })
-            }
+    // Required to change the title bar colours
+    FlatDarculaLaf.setup()
+
+    SwingUtilities.invokeLater {
+        JFrame.setDefaultLookAndFeelDecorated(true)
+
+        val window = JFrame()
+        window.location = Point(200, 200)
+        window.rootPane.putClientProperty("JRootPane.titleBarBackground", Color(50, 50, 50))
+        window.rootPane.putClientProperty("JRootPane.titleBarForeground", Color.white)
+        window.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
+
+        val composePanel = ComposePanel()
+        window.contentPane.add(composePanel, BorderLayout.CENTER)
+
+        // setting the content
+        composePanel.setContent {
+            App(dependencies)
         }
+
+        window.setSize(800, 1100)
+        window.isVisible = true
     }
 }
