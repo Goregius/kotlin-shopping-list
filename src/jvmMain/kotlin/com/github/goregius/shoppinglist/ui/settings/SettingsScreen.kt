@@ -32,9 +32,8 @@ private fun Settings(
             OutlinedTextField(
                 value = todoistToken,
                 onValueChange = onUpdateTodoistToken,
-                modifier = Modifier
+                placeholder = { Text("Please enter a Todoist token") }
             )
-
             Spacer(Modifier.width(4.dp))
 
             Button(onClick = onSubmitTodoistToken) {
@@ -50,6 +49,16 @@ private fun SettingsPreview() {
     MaterialTheme(darkColors()) {
         Surface {
             Settings("token text", {}, {})
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun SettingsEmptyPreview() {
+    MaterialTheme(darkColors()) {
+        Surface {
+            Settings("", {}, {})
         }
     }
 }
