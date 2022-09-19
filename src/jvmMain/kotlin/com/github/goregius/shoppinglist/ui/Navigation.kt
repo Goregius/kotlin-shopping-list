@@ -9,7 +9,7 @@ class Navigation(homeRoute: Route) {
 
     val currentRoute by derivedStateOf { _routes.last() }
 
-    val hasBackNavigate by derivedStateOf { _routes.count() > 1 }
+    val hasBackNavigation by derivedStateOf { _routes.count() > 1 }
 
     fun navigateTo(route: Route) {
         _routes.add(route)

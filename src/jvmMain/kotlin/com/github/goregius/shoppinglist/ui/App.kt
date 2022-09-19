@@ -35,7 +35,7 @@ fun App(dependencies: Dependencies) {
                     onSettingsClick = {
                         navigation.navigateTo(Route.Settings)
                     },
-                    hasBackNavigation = navigation.hasBackNavigate,
+                    hasBackNavigation = navigation.hasBackNavigation,
                     onBackClicked = { navigation.navigateBack() }
                 )
             }
