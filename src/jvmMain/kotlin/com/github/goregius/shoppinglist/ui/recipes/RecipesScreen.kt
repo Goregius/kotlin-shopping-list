@@ -31,21 +31,44 @@ import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun RecipesScreen(viewModel: RecipesViewModel) {
-    val recipeOptions = viewModel.recipeOptions
+    Recipes(
+        recipeOptions = viewModel.recipeOptions,
+        onSelectRecipe = viewModel::selectRecipe,
+        onExpandRecipe = viewModel::expandRecipe,
+        errorMessage = viewModel.userErrorMessage,
+        onDismissErrorMessage = viewModel::dismissErrorMessage,
+        isAddingToShoppingList = viewModel.isAddingToShoppingList,
+        addSelectionToShoppingList = viewModel::addSelectionToShoppingList,
+        ingredientsCount = viewModel.ingredientsCount,
+        isAddIngredientsButtonEnabled = viewModel.isAddIngredientsButtonEnabled
+    )
+}
 
+@Composable
+private fun Recipes(
+    recipeOptions: List<RecipeOption>,
+    onSelectRecipe: (index: Int) -> Unit,
+    onExpandRecipe: (index: Int) -> Unit,
+    errorMessage: String? = null,
+    onDismissErrorMessage: () -> Unit = {},
+    isAddingToShoppingList: Boolean,
+    addSelectionToShoppingList: () -> Unit,
+    ingredientsCount: Int,
+    isAddIngredientsButtonEnabled: Boolean
+) {
     Column(Modifier.fillMaxSize().padding(8.dp)) {
         Card(Modifier.weight(1f).fillMaxWidth()) {
             RecipesList(
                 recipeOptions = recipeOptions,
-                onSelectRecipe = viewModel::selectRecipe,
-                onExpandRecipe = viewModel::expandRecipe,
-                errorMessage = viewModel.userErrorMessage,
-                onDismissErrorMessage = viewModel::dismissErrorMessage,
+                onSelectRecipe = onSelectRecipe,
+                onExpandRecipe = onExpandRecipe,
+                errorMessage = errorMessage,
+                onDismissErrorMessage = onDismissErrorMessage,
                 modifier = Modifier.fillMaxSize().padding(4.dp)
             )
         }
 
-        if (viewModel.isAddingToShoppingList) {
+        if (isAddingToShoppingList) {
             Spacer(Modifier.height(8.dp))
             LinearProgressIndicator(Modifier.fillMaxWidth().height(10.dp))
         }
@@ -54,11 +77,11 @@ fun RecipesScreen(viewModel: RecipesViewModel) {
 
         AddIngredientsButton(
             onClick = {
-                viewModel.addSelectionToShoppingList()
+                addSelectionToShoppingList()
             },
             modifier = Modifier.fillMaxWidth(),
-            ingredientsCount = viewModel.ingredientsCount,
-            enabled = viewModel.isAddIngredientsButtonEnabled
+            ingredientsCount = ingredientsCount,
+            enabled = isAddIngredientsButtonEnabled
         )
     }
 }
@@ -192,7 +215,7 @@ private fun animateFunkyColor(): State<Color> {
         }
     }
 
-    return transition.animateColor() { state ->
+    return transition.animateColor { state ->
         if (state) Color.Red else Color.Blue
     }
 }
