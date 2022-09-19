@@ -3,6 +3,7 @@ package com.github.goregius.shoppinglist.ui
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
@@ -17,7 +18,7 @@ fun TopAppBar(
     onBackClicked: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    androidx.compose.material.TopAppBar(
+    TopAppBar(
         modifier = modifier,
         title = {
             val text = when (route) {
