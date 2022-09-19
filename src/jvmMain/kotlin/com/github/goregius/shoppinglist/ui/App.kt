@@ -49,7 +49,7 @@ fun App(dependencies: Dependencies) {
         SettingsViewModel(preferencesRepository = dependencies.preferencesRepository)
     }
 
-    val navigation = remember { Navigation(Route.Settings) }
+    val navigation = remember { Navigation(Route.Recipes) }
 
     MaterialTheme(darkColors()) {
         val scaffoldState: ScaffoldState = rememberScaffoldState()
