@@ -8,26 +8,17 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import arrow.core.Either
-import arrow.core.right
 import com.github.goregius.shoppinglist.extension.toDisplayString
-import com.github.goregius.shoppinglist.model.RecipeRepositoryError
-import com.github.goregius.shoppinglist.model.TodoistRepositoryError
 import com.github.goregius.shoppinglist.model.recipe.Ingredient
 import com.github.goregius.shoppinglist.model.recipe.Recipe
-import com.github.goregius.shoppinglist.model.todoist.AddItemsResponse
-import com.github.goregius.shoppinglist.model.todoist.ItemAddCommand
-import com.github.goregius.shoppinglist.repository.RecipeRepository
-import com.github.goregius.shoppinglist.repository.TodoistSyncRepository
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun RecipesScreen(viewModel: RecipesViewModel) {
@@ -49,12 +40,12 @@ private fun Recipes(
     recipeOptions: List<RecipeOption>,
     onSelectRecipe: (index: Int) -> Unit,
     onExpandRecipe: (index: Int) -> Unit,
-    errorMessage: String? = null,
-    onDismissErrorMessage: () -> Unit = {},
+    errorMessage: String?,
+    onDismissErrorMessage: () -> Unit,
     isAddingToShoppingList: Boolean,
     addSelectionToShoppingList: () -> Unit,
     ingredientsCount: Int,
-    isAddIngredientsButtonEnabled: Boolean
+    isAddIngredientsButtonEnabled: Boolean,
 ) {
     Column(Modifier.fillMaxSize().padding(8.dp)) {
         Card(Modifier.weight(1f).fillMaxWidth()) {
@@ -76,9 +67,7 @@ private fun Recipes(
         Spacer(Modifier.height(8.dp))
 
         AddIngredientsButton(
-            onClick = {
-                addSelectionToShoppingList()
-            },
+            onClick = addSelectionToShoppingList,
             modifier = Modifier.fillMaxWidth(),
             ingredientsCount = ingredientsCount,
             enabled = isAddIngredientsButtonEnabled
@@ -222,27 +211,23 @@ private fun animateFunkyColor(): State<Color> {
 
 @Preview
 @Composable
-fun RecipeScreenSimplePreview() {
+private fun RecipesSimplePreview() {
     MaterialTheme(darkColors()) {
         Surface(Modifier.fillMaxSize()) {
-            RecipesScreen(
-                RecipesViewModel(
-                    recipeRepository = object : RecipeRepository {
-                        override fun findAll(): Either<RecipeRepositoryError, Flow<Recipe>> {
-                            return flowOf(
-                                Recipe("Chicken", emptyList(), emptyList()),
-                                Recipe("Pork", emptyList(), emptyList()),
-                                Recipe("Beef", emptyList(), emptyList()),
-                            ).right()
-                        }
-                    },
-                    todoistRepository = object : TodoistSyncRepository {
-                        override suspend fun addItems(commands: List<ItemAddCommand>): Either<TodoistRepositoryError, AddItemsResponse> {
-                            return AddItemsResponse().right()
-                        }
-                    },
-                    rememberCoroutineScope()
-                )
+            Recipes(
+                recipeOptions = listOf(
+                    RecipeOption(Recipe("Chicken", emptyList(), emptyList()), selected = false, expanded = false),
+                    RecipeOption(Recipe("Pork", emptyList(), emptyList()), selected = true, expanded = false),
+                    RecipeOption(Recipe("Beef", emptyList(), emptyList()), selected = false, expanded = false)
+                ),
+                onSelectRecipe = {},
+                onExpandRecipe = {},
+                errorMessage = null,
+                onDismissErrorMessage = {},
+                isAddingToShoppingList = false,
+                addSelectionToShoppingList = {},
+                ingredientsCount = 0,
+                isAddIngredientsButtonEnabled = false
             )
         }
     }
@@ -250,38 +235,55 @@ fun RecipeScreenSimplePreview() {
 
 @Preview
 @Composable
-fun RecipeScreenOpenedPreview() {
+private fun RecipeScreenOpenedPreview() {
     MaterialTheme(darkColors()) {
         Surface(Modifier.fillMaxSize()) {
-            RecipesScreen(
-                RecipesViewModel(
-                    recipeRepository = object : RecipeRepository {
-                        override fun findAll(): Either<RecipeRepositoryError, Flow<Recipe>> {
-                            return flowOf(
-                                Recipe("Chicken", emptyList(), emptyList()),
-                                Recipe(
-                                    "Pork",
-                                    listOf(
-                                        Ingredient("1", "kg", "pork"),
-                                        Ingredient("15", "g", "thyme"),
-                                        Ingredient("25", "g", "butter"),
-                                    ),
-                                    emptyList()
-                                ),
-                                Recipe("Beef", emptyList(), emptyList()),
-                            ).right()
-                        }
-                    },
-                    todoistRepository = object : TodoistSyncRepository {
-                        override suspend fun addItems(commands: List<ItemAddCommand>): Either<TodoistRepositoryError, AddItemsResponse> {
-                            return AddItemsResponse().right()
-                        }
-                    },
-                    rememberCoroutineScope()
-                ).also { recipesViewModel ->
-                    recipesViewModel.recipeOptions[1] =
-                        recipesViewModel.recipeOptions[1].copy(selected = true, expanded = true)
-                }
+            Recipes(
+                recipeOptions = listOf(
+                    RecipeOption(Recipe("Chicken", emptyList(), emptyList()), selected = false, expanded = false),
+                    RecipeOption(
+                        Recipe(
+                            "Pork", listOf(
+                                Ingredient("1", "kg", "pork"),
+                                Ingredient("15", "g", "thyme"),
+                                Ingredient("25", "g", "butter"),
+                            ), emptyList()
+                        ), selected = true, expanded = true
+                    ),
+                    RecipeOption(Recipe("Beef", emptyList(), emptyList()), selected = false, expanded = false)
+                ),
+                onSelectRecipe = {},
+                onExpandRecipe = {},
+                errorMessage = null,
+                onDismissErrorMessage = {},
+                isAddingToShoppingList = false,
+                addSelectionToShoppingList = {},
+                ingredientsCount = 3,
+                isAddIngredientsButtonEnabled = true
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun RecipesErrorMessagePreview() {
+    MaterialTheme(darkColors()) {
+        Surface(Modifier.fillMaxSize()) {
+            Recipes(
+                recipeOptions = listOf(
+                    RecipeOption(Recipe("Chicken", emptyList(), emptyList()), selected = false, expanded = false),
+                    RecipeOption(Recipe("Pork", emptyList(), emptyList()), selected = true, expanded = false),
+                    RecipeOption(Recipe("Beef", emptyList(), emptyList()), selected = false, expanded = false)
+                ),
+                onSelectRecipe = {},
+                onExpandRecipe = {},
+                errorMessage = "Error message",
+                onDismissErrorMessage = {},
+                isAddingToShoppingList = false,
+                addSelectionToShoppingList = {},
+                ingredientsCount = 0,
+                isAddIngredientsButtonEnabled = true
             )
         }
     }
