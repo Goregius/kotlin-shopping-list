@@ -35,41 +35,14 @@ fun RecipesScreen(viewModel: RecipesViewModel) {
 
     Column(Modifier.fillMaxSize().padding(8.dp)) {
         Card(Modifier.weight(1f).fillMaxWidth()) {
-            Column {
-                Box(
-                    modifier = Modifier.fillMaxSize().padding(4.dp)
-                ) {
-                    val stateVertical = rememberScrollState(0)
-                    // LazyColumn would be preferable here but the expanding lists cause the scrollbar to bug out
-                    Column(Modifier.verticalScroll(stateVertical)) {
-                        viewModel.userErrorMessage?.let { message ->
-                            Text(
-                                text = message,
-                                modifier = Modifier.clickable { viewModel.dismissErrorMessage() },
-                                color = animateFunkyColor().value
-                            )
-                        }
-                        recipeOptions.forEachIndexed { index, recipeOption ->
-                            RecipeOptionCard(
-                                recipeOption = recipeOption,
-                                onRecipeSelect = {
-                                    recipeOptions[index] = recipeOption.copy(selected = !recipeOption.selected)
-                                },
-                                onRecipeExpand = {
-                                    recipeOptions[index] =
-                                        recipeOption.copy(expanded = !recipeOption.expanded)
-                                }
-                            )
-                        }
-                    }
-                    VerticalScrollbar(
-                        modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
-                        adapter = rememberScrollbarAdapter(
-                            scrollState = stateVertical
-                        ),
-                    )
-                }
-            }
+            RecipesList(
+                recipeOptions = recipeOptions,
+                onSelectRecipe = viewModel::selectRecipe,
+                onExpandRecipe = viewModel::expandRecipe,
+                errorMessage = viewModel.userErrorMessage,
+                onDismissErrorMessage = viewModel::dismissErrorMessage,
+                modifier = Modifier.fillMaxSize().padding(4.dp)
+            )
         }
 
         if (viewModel.isAddingToShoppingList) {
@@ -79,34 +52,65 @@ fun RecipesScreen(viewModel: RecipesViewModel) {
 
         Spacer(Modifier.height(8.dp))
 
-        Button(
+        AddIngredientsButton(
             onClick = {
                 viewModel.addSelectionToShoppingList()
             },
             modifier = Modifier.fillMaxWidth(),
-            enabled = !viewModel.isAddingToShoppingList && viewModel.recipeOptions.any { it.selected }
-        ) {
-            Row(
-                Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center
-            ) {
-                if (viewModel.ingredientsCount > 0) {
-                    val s = if (viewModel.ingredientsCount > 1) "s" else ""
-                    Text("Add ${viewModel.ingredientsCount} ingredient$s to the shopping list")
-                } else {
-                    Text("Select a recipe")
-                }
+            ingredientsCount = viewModel.ingredientsCount,
+            enabled = viewModel.isAddIngredientsButtonEnabled
+        )
+    }
+}
+
+@Composable
+private fun RecipesList(
+    recipeOptions: List<RecipeOption>,
+    onSelectRecipe: (index: Int) -> Unit,
+    onExpandRecipe: (index: Int) -> Unit,
+    errorMessage: String? = null,
+    onDismissErrorMessage: () -> Unit = {},
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier
+    ) {
+        val stateVertical = rememberScrollState(0)
+        // LazyColumn would be preferable here but the expanding lists cause the scrollbar to bug out
+        Column(Modifier.verticalScroll(stateVertical)) {
+            errorMessage?.let { message ->
+                Text(
+                    text = message,
+                    modifier = Modifier.clickable { onDismissErrorMessage() },
+                    color = animateFunkyColor().value
+                )
+            }
+            recipeOptions.forEachIndexed { index, recipeOption ->
+                RecipeOptionCard(
+                    recipeOption = recipeOption,
+                    onSelectRecipe = {
+                        onSelectRecipe(index)
+                    },
+                    onExpandRecipe = {
+                        onExpandRecipe(index)
+                    }
+                )
             }
         }
+        VerticalScrollbar(
+            modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
+            adapter = rememberScrollbarAdapter(
+                scrollState = stateVertical
+            ),
+        )
     }
 }
 
 @Composable
 private fun RecipeOptionCard(
     recipeOption: RecipeOption,
-    onRecipeSelect: () -> Unit,
-    onRecipeExpand: () -> Unit,
+    onSelectRecipe: () -> Unit,
+    onExpandRecipe: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(modifier.fillMaxWidth().padding(2.dp)) {
@@ -117,14 +121,13 @@ private fun RecipeOptionCard(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
-                    Checkbox(recipeOption.selected, {
-                        onRecipeSelect()
-                    })
+                    Checkbox(
+                        checked = recipeOption.selected,
+                        onCheckedChange = { onSelectRecipe() }
+                    )
                     Text(recipeOption.recipe.recipeName)
                 }
-                IconButton(onClick = {
-                    onRecipeExpand()
-                }, Modifier.padding(end = 8.dp)) {
+                IconButton(onClick = onExpandRecipe, Modifier.padding(end = 8.dp)) {
                     if (recipeOption.expanded) {
                         Icon(Icons.Default.KeyboardArrowUp, "Save")
                     } else {
@@ -151,6 +154,33 @@ private fun IngredientsList(ingredients: Iterable<Ingredient>) {
 }
 
 @Composable
+private fun AddIngredientsButton(
+    onClick: () -> Unit,
+    ingredientsCount: Int,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        enabled = enabled
+    ) {
+        Row(
+            Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            if (ingredientsCount > 0) {
+                val s = if (ingredientsCount > 1) "s" else ""
+                Text("Add $ingredientsCount ingredient$s to the shopping list")
+            } else {
+                Text("Select a recipe")
+            }
+        }
+    }
+}
+
+@Composable
 private fun animateFunkyColor(): State<Color> {
     var currentState by remember { mutableStateOf(false) }
     val transition = updateTransition(currentState)
@@ -169,7 +199,7 @@ private fun animateFunkyColor(): State<Color> {
 
 @Preview
 @Composable
-fun RecipeScreenSimple() {
+fun RecipeScreenSimplePreview() {
     MaterialTheme(darkColors()) {
         Surface(Modifier.fillMaxSize()) {
             RecipesScreen(
@@ -197,7 +227,7 @@ fun RecipeScreenSimple() {
 
 @Preview
 @Composable
-fun RecipeScreenOpened() {
+fun RecipeScreenOpenedPreview() {
     MaterialTheme(darkColors()) {
         Surface(Modifier.fillMaxSize()) {
             RecipesScreen(

@@ -31,6 +31,8 @@ class RecipesViewModel(
     val ingredientsCount by
         derivedStateOf { recipeOptions.filter { it.selected }.sumOf { it.recipe.ingredients.count() } }
 
+    val isAddIngredientsButtonEnabled by derivedStateOf { !isAddingToShoppingList && recipeOptions.any { it.selected } }
+
     init {
         coroutineScope.launch {
             when (val recipesResult = recipeRepository.findAll()) {
@@ -53,6 +55,16 @@ class RecipesViewModel(
             .map { it.recipe }
 
         addRecipesToShoppingList(recipes)
+    }
+
+    fun selectRecipe(index: Int) {
+        val recipeOption = recipeOptions[index]
+        recipeOptions[index] = recipeOption.copy(selected = !recipeOption.selected)
+    }
+
+    fun expandRecipe(index: Int) {
+        val recipeOption = recipeOptions[index]
+        recipeOptions[index] = recipeOption.copy(expanded = !recipeOption.expanded)
     }
 
     private suspend fun addRecipesToShoppingList(recipes: Iterable<Recipe>) {
