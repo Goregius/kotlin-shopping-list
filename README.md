@@ -29,8 +29,8 @@ TODO: resources aren't being copied by compose plugin, see [issue](https://githu
 
 ### Todoist
 
-All the requests in the examples require a user token for authentication. You can find your personal token in the
-[integrations settings view](https://todoist.com/prefs/integrations) of the Todoist web app. Set this to the **Todoist
+You can find your personal token in the [integrations settings view](https://todoist.com/prefs/integrations) of the
+Todoist web app. Set this to the **Todoist
 Token** setting.
 
 ### Maintaining Professional Standards
