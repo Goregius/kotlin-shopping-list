@@ -25,10 +25,7 @@ fun App(dependencies: Dependencies) {
     val navigation = remember { Navigation(Route.Recipes) }
 
     MaterialTheme(darkColors()) {
-        val scaffoldState: ScaffoldState = rememberScaffoldState()
-
         Scaffold(
-            scaffoldState = scaffoldState,
             topBar = {
                 ShoppingListTopAppBar(
                     route = navigation.currentRoute,
