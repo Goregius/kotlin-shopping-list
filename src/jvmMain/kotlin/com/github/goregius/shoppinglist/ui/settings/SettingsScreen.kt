@@ -13,7 +13,8 @@ fun SettingsScreen(settingsViewModel: SettingsViewModel) {
     Settings(
         todoistToken = settingsViewModel.todoistToken,
         onUpdateTodoistToken = settingsViewModel::updateTodoistTokenText,
-        onSubmitTodoistToken = settingsViewModel::submitTodoistToken
+        onSubmitTodoistToken = settingsViewModel::submitTodoistToken,
+        enableSubmitToken = settingsViewModel.enableSubmitToken
     )
 }
 
@@ -22,6 +23,7 @@ private fun Settings(
     todoistToken: String,
     onUpdateTodoistToken: (String) -> Unit,
     onSubmitTodoistToken: () -> Unit,
+    enableSubmitToken: Boolean,
 ) {
     Column(Modifier.fillMaxSize().padding(8.dp).padding(top = 8.dp)) {
         Text("Todoist token:")
@@ -36,7 +38,7 @@ private fun Settings(
             )
             Spacer(Modifier.width(4.dp))
 
-            Button(onClick = onSubmitTodoistToken) {
+            Button(onClick = onSubmitTodoistToken, enabled = enableSubmitToken) {
                 Text("Submit")
             }
         }
@@ -48,7 +50,7 @@ private fun Settings(
 private fun SettingsPreview() {
     MaterialTheme(darkColors()) {
         Surface {
-            Settings("token text", {}, {})
+            Settings("token text", {}, {}, true)
         }
     }
 }
@@ -58,7 +60,17 @@ private fun SettingsPreview() {
 private fun SettingsEmptyPreview() {
     MaterialTheme(darkColors()) {
         Surface {
-            Settings("", {}, {})
+            Settings("", {}, {}, true)
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun SettingsSubmitNotEnabledPreview() {
+    MaterialTheme(darkColors()) {
+        Surface {
+            Settings("token text", {}, {}, false)
         }
     }
 }
