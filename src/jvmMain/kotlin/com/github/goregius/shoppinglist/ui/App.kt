@@ -18,9 +18,6 @@ fun App(dependencies: Dependencies) {
             coroutineScope = coroutineScope
         )
     }
-    val settingsViewModel = remember {
-        SettingsViewModel(preferencesRepository = dependencies.preferencesRepository)
-    }
 
     val navigation = remember { Navigation(Route.Recipes) }
 
@@ -44,7 +41,9 @@ fun App(dependencies: Dependencies) {
                     }
 
                     Route.Settings -> {
-                        SettingsScreen(settingsViewModel)
+                        SettingsScreen(remember {
+                            SettingsViewModel(preferencesRepository = dependencies.preferencesRepository)
+                        })
                     }
                 }
             }
